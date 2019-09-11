@@ -9882,6 +9882,10 @@
           "partnerDetails": {
             "description": "The partner details, if a partner was involved in the license",
             "$ref": "#/components/schemas/PartnerContact"
+          },
+          "attribution": {
+            "description": "Marketing Attribution Data",
+            "$ref": "#/components/schemas/AttributionDetails"
           }
         },
         "description": "Describes a single license of a vendor's app"
@@ -13916,6 +13920,37 @@
             "$ref": "#/components/schemas/HostingSupportModel"
           }
         }
+      },
+      "AttributionDetails": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "The channel through which app was sold to a customer",
+            "readOnly": true
+          },
+          "campaignName": {
+            "type": "string",
+            "description": "A parameter to identify a specific product promotion or strategic campaign",
+            "readOnly": true
+          },
+          "campaignSource": {
+            "type": "string",
+            "description": "A parameter to identify the source of the traffic",
+            "readOnly": true
+          },
+          "campaignMedium": {
+            "type": "string",
+            "description": "A parameter to identify the medium the link was used upon",
+            "readOnly": true
+          },
+          "campaignContent": {
+            "type": "string",
+            "description": "Optional parameter for additional details for A/B testing and content-targeted ads",
+            "readOnly": true
+          }
+        },
+        "description": "Marketing attribution data. This feature is in Closed Beta phase."
       },
       "html": {
         "type": "string"
