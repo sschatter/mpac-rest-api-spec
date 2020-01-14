@@ -6868,6 +6868,15 @@
             }
           },
           {
+            "name": "withAttribution",
+            "in": "query",
+            "description": "If specified, retrieve marketing funnel attribution data",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "lastUpdated",
             "in": "query",
             "description": "If specified, restricts the query to values updated on or after the specified date",
@@ -7110,6 +7119,15 @@
                   "inactive"
                 ]
               }
+            }
+          },
+          {
+            "name": "withAttribution",
+            "in": "query",
+            "description": "If specified, retrieve marketing funnel attribution data",
+            "required": false,
+            "schema": {
+              "type": "boolean"
             }
           },
           {
@@ -13929,9 +13947,9 @@
             "description": "The channel through which app was sold to a customer",
             "readOnly": true
           },
-          "campaignName": {
+          "referrerDomain": {
             "type": "string",
-            "description": "A parameter to identify a specific product promotion or strategic campaign",
+            "description": "The domain from the referrer",
             "readOnly": true
           },
           "campaignSource": {
@@ -13942,6 +13960,11 @@
           "campaignMedium": {
             "type": "string",
             "description": "A parameter to identify the medium the link was used upon",
+            "readOnly": true
+          },
+          "campaignName": {
+            "type": "string",
+            "description": "A parameter to identify a specific product promotion or strategic campaign",
             "readOnly": true
           },
           "campaignContent": {
