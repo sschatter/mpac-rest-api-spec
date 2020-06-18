@@ -9649,7 +9649,11 @@
       "Address": {
         "type": "object",
         "required": [
-          "line1"
+          "line1",
+          "city",
+          "state",
+          "postCode",
+          "country"
         ],
         "properties": {
           "line1": {
@@ -10923,7 +10927,10 @@
       "VendorPaymentContact": {
         "type": "object",
         "required": [
-          "email"
+          "email",
+          "firstName",
+          "lastName",
+          "phoneNumber"
         ],
         "properties": {
           "email": {
@@ -10937,6 +10944,10 @@
           "lastName": {
             "type": "string",
             "description": "Last name of the contact"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "Phone number of the contact"
           }
         }
       },
@@ -11106,7 +11117,8 @@
         "required": [
           "address",
           "contact",
-          "payment"
+          "bankProperties",
+          "tax"
         ],
         "properties": {
           "_links": {
@@ -11119,8 +11131,11 @@
           "contact": {
             "$ref": "#/components/schemas/VendorPaymentContact"
           },
-          "payment": {
+          "bankProperties": {
             "$ref": "#/components/schemas/VendorPaymentAccount"
+          },
+          "tax": {
+            "$ref": "#/components/schemas/VendorTax"
           }
         }
       },
@@ -11914,68 +11929,69 @@
       },
       "VendorPaymentAccount": {
         "type": "object",
+        "required": [
+          "accountName",
+          "accountNumberOrIban",
+          "bankName",
+          "bankCity",
+          "bankIsoCountryCode"
+        ],
         "properties": {
           "accountName": {
             "type": "string",
             "description": "Account holder name"
           },
-          "accountAddress": {
-            "type": "string",
-            "description": "Account holder's physical address (no PO boxes; maximum 138 characters)"
-          },
-          "accountCountry": {
-            "type": "string",
-            "description": "Account holder's country (use an ISO 639-1 country code)"
-          },
           "accountNumberOrIban": {
             "type": "string",
-            "description": "International Bank Account Number or other equivalent account number"
-          },
-          "swiftCode": {
-            "type": "string",
-            "description": "SWIFT or BIC code (must be 8-11 characters)"
-          },
-          "otherCodeType": {
-            "type": "string",
-            "description": "Type of other account code, if any",
-            "enum": [
-              "chips",
-              "fedwire",
-              "routing",
-              "sortcode"
-            ]
-          },
-          "otherCodeNumber": {
-            "type": "string",
-            "description": "Other account code, if any (otherCodeType is required if you provide this)"
+            "description": "Bank Account Number"
           },
           "bankName": {
             "type": "string",
             "description": "Bank name"
           },
-          "bankAddress": {
-            "type": "string",
-            "description": "Bank address (follow your bank's preferred format)"
-          },
           "bankCity": {
             "type": "string",
             "description": "Bank city"
           },
-          "bankCountry": {
+          "bankIsoCountryCode": {
             "type": "string",
             "description": "Bank country (use an ISO 639-1 country code)"
           },
-          "taxId": {
+          "routingNumber": {
             "type": "string",
-            "description": "The number that identifies you or your business for income tax purposes (for example, the 9-digit tax ID in the US or TFN in Australia)"
+            "description": "Routing number (required only for banks in the US)"
           },
-          "businessId": {
+          "bankAddress": {
             "type": "string",
-            "description": "The unique number that identifies your business (your Company Number or ABN in Australia)"
+            "description": "Bank address (required only for banks in the US)"
           },
-          "salesTaxId": {
+          "bankState": {
             "type": "string",
-            "description": "Your company number for reporting sales tax (VAT in Europe, GST in Australia)"
+            "description": "Bank state (required only for banks in the US)"
+          },
+          "bankPincode": {
+            "type": "string",
+            "description": "Bank Pincode (required only for banks in the US)"
+          },
+          "swiftCode": {
+            "type": "string",
+            "description": "Swift code (required only for banks not in the US)"
+          }
+        }
+      },
+      "VendorTax": {
+        "type": "object",
+        "required": [
+          "abnOrTaxId"
+        ],
+        "properties": {
+          "abnOrTaxId": {
+            "type": "string",
+            "description": "Number that identifies you or your business for income tax purposes"
+          },
+          "isGSTRegistered": {
+            "type": "boolean",
+            "description": "Is your company GST registered? (required for Australian vendors)"
           }
         }
       },
