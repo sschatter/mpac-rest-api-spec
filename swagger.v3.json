@@ -14320,6 +14320,11 @@
             "format": "float",
             "description": "For partner sales, the amount discounted before the sale price"
           },
+          "loyaltyDiscountAmount": {
+            "type": "number",
+            "format": "float",
+            "description": "For partner sales, the amount discounted as Loyalty Discount"
+          },
           "saleType": {
             "type": "string",
             "description": "The display name of the sale type, for example \"Renewal\""
