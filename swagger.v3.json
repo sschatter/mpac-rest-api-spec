@@ -6870,7 +6870,16 @@
           {
             "name": "withAttribution",
             "in": "query",
-            "description": "If specified, retrieve marketing funnel attribution data",
+            "description": "This field is deprecated. Please use withDataInsights to obtain additional data insights. If specified, retrieve marketing funnel attribution data",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "withDataInsights",
+            "in": "query",
+            "description": "If specified, retrieve additional data insights - marketing funnel attribution data",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -7124,7 +7133,16 @@
           {
             "name": "withAttribution",
             "in": "query",
-            "description": "If specified, retrieve marketing funnel attribution data",
+            "description": "This field is deprecated. Please use withDataInsights to obtain additional data insights. If specified, retrieve marketing funnel attribution data",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "withDataInsights",
+            "in": "query",
+            "description": "If specified, retrieve additional data insights - marketing funnel attribution data",
             "required": false,
             "schema": {
               "type": "boolean"
