@@ -6879,7 +6879,7 @@
           {
             "name": "withDataInsights",
             "in": "query",
-            "description": "If specified, retrieve additional data insights - marketing funnel attribution data",
+            "description": "If specified, retrieve additional data insights - marketing funnel attribution, evaluation opportunity size(closed beta) and evaluation to sale insights(closed beta)",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -7142,7 +7142,7 @@
           {
             "name": "withDataInsights",
             "in": "query",
-            "description": "If specified, retrieve additional data insights - marketing funnel attribution data",
+            "description": "If specified, retrieve additional data insights - marketing funnel attribution, evaluation opportunity size(closed beta) and evaluation to sale insights(closed beta)",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -9926,6 +9926,18 @@
           "attribution": {
             "description": "Marketing Attribution Data",
             "$ref": "#/components/schemas/AttributionDetails"
+          },
+          "evaluationOpportunitySize": {
+            "type": "string",
+            "description": "Evaluation opportunity information giving the host license size. This field is in closed beta phase"
+          },
+          "evaluationLicense": {
+            "type": "string",
+            "description": "A mapping of the sale license to the corresponding evaluation license if present. This field is in closed beta phase"
+          },
+          "daysToConvertEval": {
+            "type": "string",
+            "description": "A parameter providing the difference in days between sale date and evaluation end date of an apps's license. This field is in closed beta phase"
           }
         },
         "description": "Describes a single license of a vendor's app"
