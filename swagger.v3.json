@@ -30,6 +30,10 @@
       "description": "Information about license types"
     },
     {
+      "name": "Migrations",
+      "description": "Information about app migration compatibility"
+    },
+    {
       "name": "Products",
       "description": "Information about products"
     },
@@ -8292,6 +8296,141 @@
           }
         ]
       }
+    },
+    "/addons/{addonKey}/migration": {
+      "get": {
+        "tags": [
+          "Migrations"
+        ],
+        "summary": "Get migration info",
+        "description": "Get migration info about the Server/DC version for this app. All fields except addonName, addonKey and vendorId are optional and may not exist",
+        "parameters": [
+          {
+            "name": "addonKey",
+            "in": "path",
+            "description": "The unique identifier for this app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful GET response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppMigrationInformation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Migrations"
+        ],
+        "summary": "Create migration info",
+        "description": "Create app migration information for consumption. All fields are optional",
+        "parameters": [
+          {
+            "name": "addonKey",
+            "in": "path",
+            "description": "The unique identifier for this app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppMigrationInformation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "If urls are not of valid format, cloudMigrationAssistantCompatibility has invalid values, cloudVersionAvailability has invalid values"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "security": [
+          {
+            "mpac_authed": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppMigrationPut"
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Migrations"
+        ],
+        "summary": "Update migration info",
+        "description": "Update migration information for this app. All fields except addonName, addonKey and vendorId are optional and may not exist",
+        "parameters": [
+          {
+            "name": "addonKey",
+            "in": "path",
+            "description": "The unique identifier for this app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppMigrationInformation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "If urls are not of valid format, cloudMigrationAssistantCompatibility has invalid values, cloudVersionAvailability has invalid values"
+          },
+          "404": {
+            "description": "App key was invalid or no migration information found"
+          }
+        },
+        "security": [
+          {
+            "mpac_authed": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppMigrationPatch"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "externalDocs": {
@@ -14809,6 +14948,127 @@
             "items": {
               "$ref": "#/components/schemas/LicenseType"
             }
+          }
+        }
+      },
+      "AppMigrationInformation": {
+        "type": "object",
+        "properties": {
+          "addonName": {
+            "type": "string",
+            "description": "The display name of the addon",
+            "example": "Insight - Asset Management"
+          },
+          "vendorId": {
+            "type": "integer",
+            "description": "The unique identifier for this vendor",
+            "example": 85
+          },
+          "addonKey": {
+            "type": "string",
+            "description": "The unique identifier for this addon",
+            "example": "com.riadalabs.jira.plugins.insight"
+          },
+          "cloudAddonKey": {
+            "type": "string",
+            "description": "Cloud specific addonKey, for when an equivalent Cloud version of an existing Server/Data center app is hosted in its own separate Marketplace listing"
+          },
+          "cloudVersionAvailability": {
+            "type": "string",
+            "description": "Description of cloud version",
+            "enum": [
+              "NATIVE",
+              "PUBLIC",
+              "PRIVATE"
+            ]
+          },
+          "cloudVersionDevelopmentRoadmap": {
+            "type": "string",
+            "description": "URL to Page Documenting - Cloud version development roadmap"
+          },
+          "featureDifferenceDocumentation": {
+            "type": "string",
+            "description": "URL to Page Documenting - Feature difference documentation"
+          },
+          "migrationDocumentation": {
+            "type": "string",
+            "description": "URL to Page Documenting - Server/DC to cloud migration documentation"
+          },
+          "cloudMigrationAssistantCompatibility": {
+            "type": "string",
+            "description": "A compatible version of addon's server version w.r.t. cloud migration assistant",
+            "example": "8.6.5"
+          }
+        }
+      },
+      "AppMigrationPut": {
+        "type": "object",
+        "properties": {
+          "cloudAddonKey": {
+            "type": "string",
+            "description": "Cloud specific addonKey, for when an equivalent Cloud version of an existing Server/Data center app is hosted in its own separate Marketplace listing"
+          },
+          "cloudVersionAvailability": {
+            "type": "string",
+            "enum": [
+              "NATIVE",
+              "PUBLIC",
+              "PRIVATE"
+            ],
+            "description": "Description of cloud version"
+          },
+          "cloudVersionDevelopmentRoadmap": {
+            "type": "string",
+            "description": "URL to page documenting cloud version development roadmap"
+          },
+          "featureDifferenceDocumentation": {
+            "type": "string",
+            "description": "URL to page documenting feature difference documentation"
+          },
+          "migrationDocumentation": {
+            "type": "string",
+            "description": "URL to page documenting Server/DC to cloud migration documentation"
+          },
+          "cloudMigrationAssistantCompatibility": {
+            "type": "string",
+            "description": "A compatible version of app's Server/DC version w.r.t. cloud migration assistant",
+            "example": "8.6.5"
+          }
+        }
+      },
+      "AppMigrationPatch": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/AppMigrationPatchDocumentation"
+        }
+      },
+      "AppMigrationPatchDocumentation": {
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string",
+            "description": "Indicates the operation to perform",
+            "enum": [
+              "add",
+              "replace",
+              "remove"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "enum": [
+              "/cloudAddonKey",
+              "/cloudVersionAvailability",
+              "/cloudVersionDevelopmentRoadmap",
+              "/featureDifferenceDocumentation",
+              "/migrationDocumentation",
+              "/cloudMigrationAssistantCompatibility"
+            ],
+            "description": "References a location within the target document where the operation is performed"
+          },
+          "value": {
+            "type": "string",
+            "description": "New value to save, will be ignored for 'remove' op. For '/cloudVersionAvailability' valid values are 'NATIVE', 'PUBLIC', and 'PRIVATE'"
           }
         }
       }
