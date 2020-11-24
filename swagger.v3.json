@@ -10077,6 +10077,18 @@
           "daysToConvertEval": {
             "type": "string",
             "description": "A parameter providing the difference in days between sale date and evaluation end date of an apps's license. This field is in closed beta phase"
+          },
+          "evaluationStartDate": {
+            "type": "string",
+            "description": "Start date of the matching evaluation license for the current license. This field is in closed beta phase"
+          },
+          "evaluationEndDate": {
+            "type": "string",
+            "description": "End date of the matching evaluation license for the current license. This field is in closed beta phase"
+          },
+          "evaluationSaleDate": {
+            "type": "string",
+            "description": "Sale date of the matching evaluation license for the current license. This field is in closed beta phase"
           }
         },
         "description": "Describes a single license of a vendor's app"
