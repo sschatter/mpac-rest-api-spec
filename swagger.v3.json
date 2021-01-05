@@ -158,6 +158,8 @@
             "in": "query",
             "description": "Only returns apps with any of the specified categories",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -217,6 +219,8 @@
             "in": "query",
             "description": "Only returns apps with the specified hosting model",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -257,6 +261,8 @@
             "in": "query",
             "description": "Only returns apps with the specified marketing labels",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -322,6 +328,16 @@
         ],
         "summary": "Create app",
         "description": "Create a new app.\n\nThe associated vendor account must exist prior to the app's creation. \n\nNote that the app's first version should be included in the request body (in `_embedded.version`).\n\nThis resource requires authentication.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Addon"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "201": {
             "description": "Successfully created",
@@ -349,17 +365,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Addon"
-              }
-            }
-          },
-          "required": true
-        }
+        ]
       }
     },
     "/addons/archived": {
@@ -394,6 +400,8 @@
             "in": "query",
             "description": "Only returns apps with any of the specified categories",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -453,6 +461,8 @@
             "in": "query",
             "description": "Only returns apps with the specified hosting model",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -493,6 +503,8 @@
             "in": "query",
             "description": "Only returns apps with the specified marketing labels",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -595,6 +607,8 @@
             "in": "query",
             "description": "Only returns apps with any of the specified categories",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -654,6 +668,8 @@
             "in": "query",
             "description": "Only returns apps with the specified hosting model",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -694,6 +710,8 @@
             "in": "query",
             "description": "Only returns apps with the specified marketing labels",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -786,6 +804,8 @@
             "in": "query",
             "description": "Only returns apps with any of the specified categories",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -845,6 +865,8 @@
             "in": "query",
             "description": "Only returns apps with the specified hosting model",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -885,6 +907,8 @@
             "in": "query",
             "description": "Only returns apps with the specified marketing labels",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -1019,6 +1043,8 @@
             "in": "query",
             "description": "Only returns apps with any of the specified categories",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -1078,6 +1104,8 @@
             "in": "query",
             "description": "Only returns apps with the specified hosting model",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -1118,6 +1146,8 @@
             "in": "query",
             "description": "Only returns apps with the specified marketing labels",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -1219,6 +1249,8 @@
             "in": "query",
             "description": "Only returns apps with any of the specified categories",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -1278,6 +1310,8 @@
             "in": "query",
             "description": "Only returns apps with the specified hosting model",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -1318,6 +1352,8 @@
             "in": "query",
             "description": "Only returns apps with the specified marketing labels",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -1387,6 +1423,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/JsonPatchRequest"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -1417,10 +1456,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/JsonPatchRequest"
-        }
+        ]
       }
     },
     "/addons/{addonKey}/approval": {
@@ -1479,6 +1515,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ApprovalStatus"
+        },
         "responses": {
           "400": {
             "description": "Invalid properties",
@@ -1495,10 +1534,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/ApprovalStatus"
-        }
+        ]
       }
     },
     "/addons/{addonKey}/distribution": {
@@ -2133,6 +2169,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pricing"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "",
@@ -2159,17 +2205,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Pricing"
-              }
-            }
-          },
-          "required": true
-        }
+        ]
       }
     },
     "/addons/{addonKey}/recommendations": {
@@ -2213,6 +2249,8 @@
             "in": "query",
             "description": "Only returns apps with any of the specified categories",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -2272,6 +2310,8 @@
             "in": "query",
             "description": "Only returns apps with the specified hosting model",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -2312,6 +2352,8 @@
             "in": "query",
             "description": "Only returns apps with the specified marketing labels",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -2408,6 +2450,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddonReleaseStatus"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "400": {
             "description": "Invalid properties",
@@ -2424,17 +2476,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddonReleaseStatus"
-              }
-            }
-          },
-          "required": true
-        }
+        ]
       }
     },
     "/addons/{addonKey}/reviews": {
@@ -2518,6 +2560,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Review"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -2535,10 +2580,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/Review"
-        }
+        ]
       }
     },
     "/addons/{addonKey}/reviews/id/{reviewId}": {
@@ -2608,6 +2650,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Review"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -2623,9 +2668,6 @@
           "404": {
             "description": "The resource does not exist or isn't visible to you"
           }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/Review"
         }
       },
       "delete": {
@@ -2735,6 +2777,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/BooleanState"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -2752,10 +2797,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/BooleanState"
-        }
+        ]
       }
     },
     "/addons/{addonKey}/reviews/id/{reviewId}/flag": {
@@ -2830,6 +2872,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/BooleanState"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -2847,10 +2892,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/BooleanState"
-        }
+        ]
       }
     },
     "/addons/{addonKey}/reviews/id/{reviewId}/response": {
@@ -2920,6 +2962,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewResponse"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -2940,17 +2992,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ReviewResponse"
-              }
-            }
-          },
-          "required": true
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -3064,6 +3106,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/BooleanState"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -3081,10 +3126,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/BooleanState"
-        }
+        ]
       }
     },
     "/addons/{addonKey}/reviews/mine": {
@@ -3143,6 +3185,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Review"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -3163,10 +3208,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/Review"
-        }
+        ]
       },
       "delete": {
         "tags": [
@@ -3565,6 +3607,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddonVersion"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "201": {
             "description": "Successfully created",
@@ -3595,17 +3647,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddonVersion"
-              }
-            }
-          },
-          "required": true
-        }
+        ]
       }
     },
     "/addons/{addonKey}/versions/build/{pluginBuildNumber}": {
@@ -3679,6 +3721,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/JsonPatchRequest"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -3709,10 +3754,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/JsonPatchRequest"
-        }
+        ]
       }
     },
     "/addons/{addonKey}/versions/build/{pluginBuildNumber}/approval": {
@@ -3791,6 +3833,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/ApprovalStatus"
+        },
         "responses": {
           "204": {
             "description": "Success"
@@ -3813,10 +3858,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/ApprovalStatus"
-        }
+        ]
       }
     },
     "/addons/{addonKey}/versions/latest": {
@@ -4033,6 +4075,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/BooleanState"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -4050,10 +4095,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/BooleanState"
-        }
+        ]
       }
     },
     "/applications": {
@@ -4362,6 +4404,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/binaryData"
+        },
         "responses": {
           "200": {
             "description": "",
@@ -4388,10 +4433,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/binaryData"
-        }
+        ]
       }
     },
     "/assets/artifact/fetch": {
@@ -4478,6 +4520,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/binaryData"
+        },
         "responses": {
           "200": {
             "description": "",
@@ -4499,9 +4544,6 @@
               }
             }
           }
-        },
-        "requestBody": {
-          "$ref": "#/components/requestBodies/binaryData"
         }
       }
     },
@@ -5325,6 +5367,16 @@
         ],
         "summary": "Create vendor",
         "description": "Create a new vendor.\n\nThis resource requires authentication.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vendor"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "201": {
             "description": "Successfully created",
@@ -5342,17 +5394,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Vendor"
-              }
-            }
-          },
-          "required": true
-        }
+        ]
       }
     },
     "/vendors/{vendorId}": {
@@ -5408,6 +5450,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/JsonPatchRequest"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -5438,10 +5483,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/JsonPatchRequest"
-        }
+        ]
       }
     },
     "/vendors/{vendorId}/contacts": {
@@ -5494,6 +5536,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendorContact"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "201": {
             "description": "Successfully created",
@@ -5514,17 +5566,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/VendorContact"
-              }
-            }
-          },
-          "required": true
-        }
+        ]
       }
     },
     "/vendors/{vendorId}/contacts/{userId}": {
@@ -5644,6 +5686,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/JsonPatchRequest"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -5667,10 +5712,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/JsonPatchRequest"
-        }
+        ]
       }
     },
     "/vendors/{vendorId}/paymentInfo": {
@@ -5731,6 +5773,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendorPaymentInfo"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -5748,17 +5800,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/VendorPaymentInfo"
-              }
-            }
-          },
-          "required": true
-        }
+        ]
       }
     },
     "/vendors/{vendorId}/promotions": {
@@ -5816,6 +5858,16 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Promotion"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "201": {
             "description": "Successfully created",
@@ -5833,17 +5885,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Promotion"
-              }
-            }
-          },
-          "required": true
-        }
+        ]
       }
     },
     "/vendors/{vendorId}/promotions/{promotionId}": {
@@ -5919,6 +5961,9 @@
             }
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/JsonPatchRequest"
+        },
         "responses": {
           "204": {
             "description": "Successfully modified",
@@ -5949,10 +5994,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "$ref": "#/components/requestBodies/JsonPatchRequest"
-        }
+        ]
       }
     },
     "/vendors/{vendorId}/promotions/{promotionId}/codes": {
@@ -6353,6 +6395,8 @@
             "in": "query",
             "description": "Restrict feedback to the specified type",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6378,6 +6422,8 @@
             "in": "query",
             "description": "Restrict feedback to the specified reason",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6390,6 +6436,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values for apps with the specified keys",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6402,6 +6450,8 @@
             "in": "query",
             "description": "Restricts the query to values for these hosting types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6519,6 +6569,8 @@
             "in": "query",
             "description": "Restrict feedback to the specified type",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6544,6 +6596,8 @@
             "in": "query",
             "description": "Restrict feedback to the specified reason",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6556,6 +6610,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values for apps with the specified keys",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6568,6 +6624,8 @@
             "in": "query",
             "description": "Restricts the query to values for these hosting types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6737,6 +6795,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values for apps with the specified keys",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6778,6 +6838,8 @@
             "in": "query",
             "description": "Restricts the query to values for these user/edition tiers",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6804,6 +6866,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values with the provided license type; 'inactive' queries for expired licenses. Queries for 'starter' are deprecated; results may not be as expected",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6825,6 +6889,8 @@
             "in": "query",
             "description": "Specifies whether to query only direct sales, expert sales, or reseller sales",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6842,6 +6908,8 @@
             "in": "query",
             "description": "Restricts the query to values for these hosting types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -6859,6 +6927,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values with the provided status",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7000,6 +7070,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values for apps with the specified keys",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7041,6 +7113,8 @@
             "in": "query",
             "description": "Restricts the query to values for these user/edition tiers",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7067,6 +7141,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values with the provided license type; 'inactive' queries for expired licenses. Queries for 'starter' are deprecated; results may not be as expected",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7088,6 +7164,8 @@
             "in": "query",
             "description": "Specifies whether to query only direct sales, expert sales, or reseller sales",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7105,6 +7183,8 @@
             "in": "query",
             "description": "Restricts the query to values for these hosting types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7122,6 +7202,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values with the provided status",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7484,6 +7566,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values for apps with the specified keys",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7496,6 +7580,8 @@
             "in": "query",
             "description": "Restricts the query to values for these hosting types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7523,6 +7609,8 @@
             "in": "query",
             "description": "Specifies whether to query only direct sales, expert sales, or reseller sales",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7652,6 +7740,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values for apps with the specified keys",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7664,6 +7754,8 @@
             "in": "query",
             "description": "Restricts the query to values for these hosting types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7691,6 +7783,8 @@
             "in": "query",
             "description": "Specifies whether to query only direct sales, expert sales, or reseller sales",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7813,6 +7907,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values for apps with the specified keys",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7854,6 +7950,8 @@
             "in": "query",
             "description": "Restricts the query to values for these user/edition tiers",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7867,6 +7965,8 @@
             "in": "query",
             "description": "Restricts the query to sales of these types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7885,6 +7985,8 @@
             "in": "query",
             "description": "Specifies whether to query only direct sales, expert sales, or reseller sales",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7902,6 +8004,8 @@
             "in": "query",
             "description": "Restricts the query to values for these hosting types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -8028,6 +8132,8 @@
             "in": "query",
             "description": "If specified, restricts the query to values for apps with the specified keys",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -8069,6 +8175,8 @@
             "in": "query",
             "description": "Restricts the query to values for these user/edition tiers",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -8082,6 +8190,8 @@
             "in": "query",
             "description": "Restricts the query to sales of these types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -8100,6 +8210,8 @@
             "in": "query",
             "description": "Specifies whether to query only direct sales, expert sales, or reseller sales",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -8117,6 +8229,8 @@
             "in": "query",
             "description": "Restricts the query to values for these hosting types",
             "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -8348,6 +8462,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppMigrationPut"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successfully created",
@@ -8370,16 +8493,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AppMigrationPut"
-              }
-            }
-          }
-        }
+        ]
       },
       "patch": {
         "tags": [
@@ -8398,6 +8512,15 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppMigrationPatch"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful",
@@ -8420,16 +8543,7 @@
           {
             "mpac_authed": []
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/AppMigrationPatch"
-              }
-            }
-          }
-        }
+        ]
       }
     }
   },
@@ -8572,11 +8686,9 @@
             "description": "The name of the region in which the customer was billed"
           },
           "technicalContact": {
-            "description": "The technical contact's information",
             "$ref": "#/components/schemas/LicenseContact"
           },
           "billingContact": {
-            "description": "The billing contact's information, if the app was sold directly to the customer",
             "$ref": "#/components/schemas/LicenseContact"
           }
         }
@@ -8669,7 +8781,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/SelfLinkOnly"
           },
           "items": {
@@ -8731,8 +8842,6 @@
             "readOnly": true
           },
           "role": {
-            "description": "Information about roles if the app uses role-based pricing",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonRole"
           }
         }
@@ -8744,12 +8853,9 @@
         "type": "object",
         "properties": {
           "self": {
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "parent": {
-            "description": "Link to the application to which these categories belong",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -8821,8 +8927,6 @@
         ],
         "properties": {
           "alternate": {
-            "description": "Link to external documentation for the Atlassian Connect scope",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -8884,12 +8988,9 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/AggregatedVendorReportingLink"
           },
           "total": {
-            "description": "Totals of calculated churn values per period for all apps",
-            "readOnly": true,
             "$ref": "#/components/schemas/CalculatedChurnSeries"
           },
           "addons": {
@@ -8937,7 +9038,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/SelfLinkOnly"
           },
           "name": {
@@ -8959,7 +9059,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonFeedbackCollectionLinks"
           },
           "feedbacks": {
@@ -8983,11 +9082,9 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/ReviewCollectionLinks"
           },
           "_embedded": {
-            "readOnly": true,
             "$ref": "#/components/schemas/ReviewCollectionEmbedded"
           },
           "count": {
@@ -9036,7 +9133,6 @@
         ],
         "properties": {
           "range": {
-            "description": "The time range when support is available. If not specified, the default is 24-hour availability",
             "$ref": "#/components/schemas/TimeRange"
           },
           "timezone": {
@@ -9111,15 +9207,12 @@
             "description": "The date on which the data was last updated. This can be used to identify when historical sale/license data is updated for any reason."
           },
           "customerDetails": {
-            "description": "Detailed information about the customer involved with the transaction",
             "$ref": "#/components/schemas/TransactionCustomerDetails"
           },
           "purchaseDetails": {
-            "description": "Detailed information about the transaction purchase",
             "$ref": "#/components/schemas/TransactionPurchaseDetails"
           },
           "partnerDetails": {
-            "description": "The partner details, if a partner was involved in the transaction",
             "$ref": "#/components/schemas/TransactionPartnerDetails"
           }
         },
@@ -9142,31 +9235,24 @@
             "$ref": "#/components/schemas/Link"
           },
           "downloads": {
-            "description": "Link to the product's downloads page",
             "$ref": "#/components/schemas/Link"
           },
           "logo": {
-            "description": "Link to the product's logo. For additional logo information, see _embedded.logo",
             "$ref": "#/components/schemas/Link"
           },
           "titleLogo": {
-            "description": "Link to the product's title logo (containing the product's logo and name). For additional logo information, see _embedded.titleLogo",
             "$ref": "#/components/schemas/Link"
           },
           "versions": {
-            "description": "Link to the version collection resource for this application",
             "$ref": "#/components/schemas/Link"
           },
           "latestVersion": {
-            "description": "Link to the latest compatible product version matching the specified request parameters",
             "$ref": "#/components/schemas/Link"
           },
           "versionByBuild": {
-            "description": "Link to the product version with the specified build number",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "versionByName": {
-            "description": "Link to the product version with the specified version display name",
             "$ref": "#/components/schemas/LinkTemplate"
           }
         }
@@ -9228,19 +9314,15 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to a Marketplace page showing the list of apps",
             "$ref": "#/components/schemas/Link"
           },
           "query": {
-            "description": "Link template that can be used to get a list of apps filtered by the specified query parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "byKey": {
-            "description": "Link template for querying a specific app by key",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "banners": {
-            "description": "Link to the app banner collection resource",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "next": {
@@ -9268,17 +9350,12 @@
         ],
         "properties": {
           "self": {
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "application": {
-            "description": "Link to all applications as categories are no longer application specific",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "addons": {
-            "description": "Link to the collection of apps assigned to this category",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -9294,7 +9371,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to the Marketplace profile page for this user",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -9303,7 +9379,6 @@
         "type": "object",
         "properties": {
           "supportOrg": {
-            "description": "Information about an organization that provides support on behalf of the vendor",
             "$ref": "#/components/schemas/SupportOrganization"
           },
           "targetResponseTime": {
@@ -9312,7 +9387,6 @@
             "description": "Information about the vendor's target response time for issues"
           },
           "supportHours": {
-            "description": "Information about the vendor's support hours",
             "$ref": "#/components/schemas/SupportHours"
           },
           "emergencyContact": {
@@ -9359,8 +9433,6 @@
         "type": "object",
         "properties": {
           "image": {
-            "description": "Displayable image link(s) for the instruction image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           }
         }
@@ -9377,11 +9449,9 @@
             "$ref": "#/components/schemas/Link"
           },
           "picture": {
-            "description": "A link to the user's profile picture",
             "$ref": "#/components/schemas/Link"
           },
           "pictureTemplate": {
-            "description": "A link template to the user's profile picture, any size can be specified",
             "$ref": "#/components/schemas/LinkTemplate"
           }
         }
@@ -9412,11 +9482,9 @@
             "description": "If true, the app version is compatible with Cloud instances; may be omitted if false"
           },
           "server": {
-            "description": "If present, the app version is compatible with Server instances",
             "$ref": "#/components/schemas/CompatibilityBounds"
           },
           "dataCenter": {
-            "description": "If present, the app version is compatible with Data Center instances",
             "$ref": "#/components/schemas/CompatibilityBounds"
           }
         }
@@ -9490,11 +9558,9 @@
         ],
         "properties": {
           "alternate": {
-            "description": "Link to the web content for this app on Marketplace",
             "$ref": "#/components/schemas/Link"
           },
           "logo": {
-            "description": "Displayable image link for the app's logo image",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -9510,7 +9576,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "query": {
-            "description": "Link template that can be used to get a list of aggregated vendor data filtered by the specified query parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           }
         }
@@ -9594,23 +9659,18 @@
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           },
           "latestVersion": {
-            "description": "Link to the latest compatible product version matching the specified request parameters",
             "$ref": "#/components/schemas/Link"
           },
           "versionByBuild": {
-            "description": "Link to the product version with the specified build number",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "versionByName": {
-            "description": "Link to the product version with the specified version display name",
             "$ref": "#/components/schemas/LinkTemplate"
           }
         }
@@ -9626,8 +9686,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "up": {
-            "description": "Link to the parent resource which owns this state",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -9643,7 +9701,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/LicenseTransitionCollectionLinks"
           },
           "events": {
@@ -9669,7 +9726,6 @@
             "$ref": "#/components/schemas/AddonVersionCollectionLinks"
           },
           "_embedded": {
-            "description": "Contains the list of app versions",
             "$ref": "#/components/schemas/AddonVersionCollectionEmbedded"
           },
           "count": {
@@ -9687,19 +9743,15 @@
         ],
         "properties": {
           "self": {
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "query": {
-            "description": "Link template that can be used to get a list of vendor feedback filtered by the specified query parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -9766,20 +9818,15 @@
         ],
         "properties": {
           "self": {
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "distributions": {
-            "description": "Link template for distributions of app feedback by feedback type",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -9914,7 +9961,6 @@
             ]
           },
           "release": {
-            "description": "Information about this release; you may omit this when creating a version and Marketplace will use default values",
             "$ref": "#/components/schemas/AddonVersionReleaseProperties"
           },
           "youtubeId": {
@@ -9922,7 +9968,6 @@
             "description": "YouTube video identifier if the version's hero image is a video"
           },
           "vendorLinks": {
-            "description": "External links provided by the vendor",
             "$ref": "#/components/schemas/AddonVersionExternalLinks"
           },
           "compatibilities": {
@@ -9933,7 +9978,6 @@
             }
           },
           "text": {
-            "description": "Descriptive text fields for the version",
             "$ref": "#/components/schemas/AddonVersionText"
           },
           "static": {
@@ -9956,13 +10000,9 @@
             ]
           },
           "legacy": {
-            "description": "Legacy properties for older app versions; cannot be set for new ones",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonVersionLegacyProperties"
           },
           "deployment": {
-            "description": "Describes deployment options for the version; calculated by Marketplace, cannot be set",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonVersionDeployment"
           }
         }
@@ -10055,15 +10095,12 @@
             "description": "The user/edition count"
           },
           "contactDetails": {
-            "description": "The contact details of the customer who owns the license",
             "$ref": "#/components/schemas/LicenseContactDetails"
           },
           "partnerDetails": {
-            "description": "The partner details, if a partner was involved in the license",
             "$ref": "#/components/schemas/PartnerContact"
           },
           "attribution": {
-            "description": "Marketing Attribution Data",
             "$ref": "#/components/schemas/AttributionDetails"
           },
           "evaluationOpportunitySize": {
@@ -10116,7 +10153,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/TransactionCollectionLinks"
           },
           "transactions": {
@@ -10142,12 +10178,9 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/AggregatedVendorReportingLink"
           },
           "total": {
-            "description": "Totals of calculated renewal values per period for all apps",
-            "readOnly": true,
             "$ref": "#/components/schemas/CalculatedRenewalsSeries"
           },
           "addons": {
@@ -10242,13 +10275,9 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to the main web page for this vendor on Atlassian Marketplace",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "edit": {
-            "description": "Link to the Marketplace web page for editing the vendor's information",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "logo": {
@@ -10295,7 +10324,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/ApplicationVersionLinks"
           },
           "buildNumber": {
@@ -10339,7 +10367,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "query": {
-            "description": "Link template that can be used to get a list of license transition events for a vendor's apps filtered by the specified query parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "export": {
@@ -10350,11 +10377,9 @@
             }
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -10366,8 +10391,6 @@
         "type": "object",
         "properties": {
           "banner": {
-            "description": "Displayable image link(s) for the app's banner image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           },
           "categories": {
@@ -10379,32 +10402,21 @@
             }
           },
           "logo": {
-            "description": "Displayable image link(s) for the app's logo image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           },
           "titleLogo": {
-            "description": "Displayable image link(s) for the app's title logo image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           },
           "distribution": {
-            "description": "Statistics about the app, including total number of downloads and total active installations",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonDistributionSummary"
           },
           "reviews": {
-            "description": "Summarized information about the app's reviews",
-            "readOnly": true,
             "$ref": "#/components/schemas/ReviewCollectionSummary"
           },
           "vendor": {
-            "description": "Information about the app's vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/VendorSummary"
           },
           "version": {
-            "description": "Information about the app version, if your query specified withVersion=true or if you are creating a new app",
             "$ref": "#/components/schemas/AddonVersion"
           }
         }
@@ -10649,28 +10661,18 @@
             }
           },
           "distribution": {
-            "description": "Statistics about the app, including total number of downloads and total active installations",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonDistributionSummary"
           },
           "logo": {
-            "description": "Displayable image link(s) for the app's logo image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           },
           "reviews": {
-            "description": "Summarized information about the app's reviews",
-            "readOnly": true,
             "$ref": "#/components/schemas/ReviewCollectionSummary"
           },
           "vendor": {
-            "description": "Information about the app's vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/VendorSummary"
           },
           "version": {
-            "description": "Information about the app version, if your query specified withVersion=true",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonVersionSummary"
           }
         }
@@ -10733,7 +10735,6 @@
             "description": "The type of partner ('Expert' or 'Reseller')"
           },
           "billingContact": {
-            "description": "The contact information for the billing contact within the partner organization",
             "$ref": "#/components/schemas/LicenseContact"
           }
         },
@@ -10825,20 +10826,15 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to the app listing with all of the app's reviews",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           },
           "byThisUser": {
-            "description": "Link to the review by the current user",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -10878,23 +10874,15 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to the web content for this app on Marketplace",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "image": {
-            "description": "Link to the image resource for the app listing",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "reviews": {
-            "description": "Links to the app's reviews collection resource and review details page",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "vendor": {
-            "description": "Link to the vendor resource for the app",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -10931,8 +10919,6 @@
         "type": "object",
         "properties": {
           "logo": {
-            "description": "Displayable image link(s) for the vendor's logo image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           }
         }
@@ -10985,8 +10971,6 @@
             ]
           },
           "release": {
-            "description": "Information about this release",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonVersionReleaseProperties"
           },
           "static": {
@@ -11000,13 +10984,9 @@
             "readOnly": true
           },
           "deployment": {
-            "description": "Describes deployment options for the version; calculated by Marketplace, cannot be set",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonVersionDeploymentSummary"
           },
           "vendorLinks": {
-            "description": "External links provided by the vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonVersionExternalLinks"
           }
         }
@@ -11047,7 +11027,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "parent": {
-            "description": "Link to the application resource",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -11059,11 +11038,9 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/ReviewLinks"
           },
           "_embedded": {
-            "readOnly": true,
             "$ref": "#/components/schemas/ReviewEmbedded"
           },
           "review": {
@@ -11139,8 +11116,6 @@
         ],
         "properties": {
           "logo": {
-            "description": "Displayable image link(s) for the application's logo image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           }
         }
@@ -11149,66 +11124,42 @@
         "type": "object",
         "properties": {
           "self": {
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to the vendor's main web page on the Marketplace",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "addons": {
-            "description": "Link to an app collection resource that only includes apps from this vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "archivedAddons": {
-            "description": "Link to an archived app collection resource that only includes archived apps from this vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "contacts": {
-            "description": "Link to the contacts collection resource for this vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "sales": {
-            "description": "Link to the sales resource for this vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "salesReport": {
-            "description": "Link to the sales report resource for this vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "licenseReport": {
-            "description": "Link to the license report resource for this vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "reporting": {
-            "description": "Link to the base reporting resource for this vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "logo": {
-            "description": "To change the logo, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.logo",
             "$ref": "#/components/schemas/Link"
           },
           "edit": {
-            "description": "Link to the page where you can edit the vendor's information",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "paymentInfo": {
-            "description": "Link to the payment information resource for this vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "promotions": {
-            "description": "Link to the promotions collection resource for this vendor",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -11228,31 +11179,24 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to a Marketplace page showing versions of this app",
             "$ref": "#/components/schemas/Link"
           },
           "query": {
-            "description": "Link template for querying versions of this app with optional filter parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "byBuild": {
-            "description": "Link template for querying a specific version by build number",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "byName": {
-            "description": "Link template for querying a specific version by name",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "latest": {
-            "description": "Link template for querying the latest version with optional filter parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -11281,11 +11225,9 @@
         "type": "object",
         "properties": {
           "author": {
-            "description": "The review's author",
             "$ref": "#/components/schemas/UserSummary"
           },
           "response": {
-            "description": "The review's response",
             "$ref": "#/components/schemas/ReviewResponse"
           }
         }
@@ -11303,7 +11245,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/SelfLinkOnly"
           },
           "address": {
@@ -11324,13 +11265,9 @@
         "type": "object",
         "properties": {
           "image": {
-            "description": "Displayable image link(s) for the app listing",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           },
           "reviews": {
-            "description": "Summarized information about the app's reviews",
-            "readOnly": true,
             "$ref": "#/components/schemas/ReviewCollectionSummary"
           }
         }
@@ -11382,7 +11319,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "query": {
-            "description": "Link template that can be used to get a list of vendor transactions filtered by the specified query parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "export": {
@@ -11393,11 +11329,9 @@
             }
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -11452,15 +11386,12 @@
             "$ref": "#/components/schemas/Link"
           },
           "view": {
-            "description": "Link to an external page with additional information about this product",
             "$ref": "#/components/schemas/Link"
           },
           "artifact": {
-            "description": "Link to download the product version's artifact",
             "$ref": "#/components/schemas/Link"
           },
           "releaseNotes": {
-            "description": "Link to the version's release notes",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -11475,7 +11406,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/SelfLinkOnly"
           },
           "name": {
@@ -11513,7 +11443,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/BooleanStateRepLinks"
           },
           "state": {
@@ -11556,7 +11485,6 @@
         "type": "object",
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/VendorContactLinks"
           },
           "username": {
@@ -11646,7 +11574,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/VendorFeedbackCollectionLinks"
           },
           "feedback": {
@@ -11671,15 +11598,12 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to a Marketplace page showing the list of apps",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -11712,13 +11636,9 @@
         ],
         "properties": {
           "screenshot": {
-            "description": "Displayable image link(s) for the full-sized highlight image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           },
           "thumbnail": {
-            "description": "Displayable image link(s) for the thumbnail image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           }
         }
@@ -11762,7 +11682,6 @@
             "$ref": "#/components/schemas/VendorLinks"
           },
           "_embedded": {
-            "readOnly": true,
             "$ref": "#/components/schemas/VendorEmbedded"
           },
           "name": {
@@ -11774,7 +11693,6 @@
             "description": "Short introductory text that will appear on the vendor's Marketplace page"
           },
           "address": {
-            "description": "The vendor's public contact address",
             "$ref": "#/components/schemas/Address"
           },
           "email": {
@@ -11809,16 +11727,12 @@
             ]
           },
           "programs": {
-            "description": "Indicates vendor program information",
-            "readOnly": true,
             "$ref": "#/components/schemas/VendorPrograms"
           },
           "cloudSecurity": {
-            "description": "Details about the vendor's approval into the Cloud Security program",
             "$ref": "#/components/schemas/VendorCloudSecurity"
           },
           "solutionPartner": {
-            "description": "Details about the vendor's solution partner level",
             "$ref": "#/components/schemas/VendorSolutionPartner"
           },
           "isAtlassian": {
@@ -11955,11 +11869,9 @@
             "$ref": "#/components/schemas/Link"
           },
           "parent": {
-            "description": "Link to the app or app version entity",
             "$ref": "#/components/schemas/Link"
           },
           "issuePortal": {
-            "description": "Link to the issue in the Jira Service Desk portal discussing the app approval",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -11991,8 +11903,6 @@
         ],
         "properties": {
           "artifact": {
-            "description": "Information about the installable artifact, if any; has \"binary\" link for downloads, \"remote\" link for Connect descriptors",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonArtifactAssetSummary"
           },
           "functionalCategories": {
@@ -12013,11 +11923,9 @@
         ],
         "properties": {
           "screenshot": {
-            "description": "To change the full-sized highlight image, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.screenshot",
             "$ref": "#/components/schemas/Link"
           },
           "thumbnail": {
-            "description": "To change the thumbnail image, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.thumbnail",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -12034,33 +11942,21 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to the app listing with all of the app's reviews",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "author": {
-            "description": "Link to the review author's profile page",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "response": {
-            "description": "Link to respond to a review",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "flag": {
-            "description": "Link to flag a review",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "voteUp": {
-            "description": "Link to up-vote a review",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "voteDown": {
-            "description": "Link to down-vote a review",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -12203,23 +12099,15 @@
             "$ref": "#/components/schemas/Link"
           },
           "edit": {
-            "description": "Link to the page where you can edit the promotion information",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "status": {
-            "description": "Link to the promotion status resource for this promotion",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "codes": {
-            "description": "Link to the promotion code collection resource for this promotion",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "usage": {
-            "description": "Link to the promotion usage resource for this promotion",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -12343,23 +12231,15 @@
             }
           },
           "evaluationsByCountry": {
-            "description": "Link template that can be used to get evaluations aggregated by country while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "evaluationsByHosting": {
-            "description": "Link template that can be used to get evaluations aggregated by hosting model while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "evaluationsByPartner": {
-            "description": "Link template that can be used to get evaluations aggregated by partner while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "evaluationsByRegion": {
-            "description": "Link template that can be used to get evaluations aggregated by region while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "feedbackLinks": {
@@ -12371,8 +12251,6 @@
             }
           },
           "licenses": {
-            "description": "Link template that can be used to get a list of licenses sold by the vendor and filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "licensesExport": {
@@ -12384,8 +12262,6 @@
             }
           },
           "transactions": {
-            "description": "Link template that can be used to get a list of transactions for the vendor's apps and filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "transactionsExport": {
@@ -12397,33 +12273,21 @@
             }
           },
           "transactionsByCountry": {
-            "description": "Link template that can be used to get transactions aggregated by country while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "transactionsByHosting": {
-            "description": "Link template that can be used to get transactions aggregated by hosting model while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "transactionsByPartner": {
-            "description": "Link template that can be used to get transactions aggregated by partner while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "transactionsByRegion": {
-            "description": "Link template that can be used to get transactions aggregated by region while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "transactionsByTier": {
-            "description": "Link template that can be used to get transactions aggregated by tier while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "transactionsByType": {
-            "description": "Link template that can be used to get transactions aggregated by sale type while filtered by the specified query parameters",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           }
         }
@@ -12439,7 +12303,6 @@
             "description": "True if the vendor is allowed to use the license import API"
           },
           "supportToolsDetails": {
-            "description": "The vendor's Atlassian support tools details",
             "$ref": "#/components/schemas/VendorSupportToolsDetails"
           }
         }
@@ -12494,7 +12357,6 @@
             "$ref": "#/components/schemas/AddonListingCollectionLinks"
           },
           "_embedded": {
-            "description": "Contains the list of apps",
             "$ref": "#/components/schemas/AddonListingCollectionEmbedded"
           },
           "count": {
@@ -12512,11 +12374,9 @@
         ],
         "properties": {
           "min": {
-            "description": "Lowest application version that the app version is compatible with",
             "$ref": "#/components/schemas/CompatibilityHostingPoint"
           },
           "max": {
-            "description": "Highest application version that the app version is compatible with",
             "$ref": "#/components/schemas/CompatibilityHostingPoint"
           }
         }
@@ -12664,7 +12524,6 @@
             "description": "Short phrase that summarizes what the app does and will be displayed as a heading on the app details page"
           },
           "vendorLinks": {
-            "description": "External links provided by the vendor",
             "$ref": "#/components/schemas/AddonExternalLinks"
           },
           "enableAtlassianAnswers": {
@@ -12676,8 +12535,6 @@
             "description": "Google Analytics account ID for tracking visitors to the app page"
           },
           "legacy": {
-            "description": "Legacy properties for apps created before October 2013; cannot be set for new ones",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonLegacyProperties"
           },
           "marketing": {
@@ -12731,7 +12588,6 @@
             "description": "A general description of the app"
           },
           "vendorLinks": {
-            "description": "External links provided by the vendor",
             "$ref": "#/components/schemas/AddonLegacyLinks"
           }
         }
@@ -12793,11 +12649,9 @@
             "$ref": "#/components/schemas/Link"
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -12818,15 +12672,12 @@
             "$ref": "#/components/schemas/Link"
           },
           "byKey": {
-            "description": "Link template for finding an application by key",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "latestVersion": {
-            "description": "Link template for getting the latest version of an application",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "versionByBuild": {
-            "description": "Link template for getting a specific version of an application by build number",
             "$ref": "#/components/schemas/LinkTemplate"
           }
         }
@@ -12888,11 +12739,9 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonCategoryCollectionLinks"
           },
           "_embedded": {
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonCategoryCollectionEmbedded"
           }
         }
@@ -12904,7 +12753,6 @@
         ],
         "properties": {
           "vendorLinks": {
-            "description": "External links provided by the vendor",
             "$ref": "#/components/schemas/AddonVersionLegacyLinks"
           }
         }
@@ -12920,8 +12768,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "artifact": {
-            "description": "Resource link to information about the app artifact; see _embedded.artifact for the actual download link or descriptor link",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "functionalCategories": {
@@ -12950,7 +12796,6 @@
             "description": "The type of partner ('Expert' or 'Reseller')"
           },
           "billingContact": {
-            "description": "The contact information for the billing contact within the partner organization",
             "$ref": "#/components/schemas/TransactionContact"
           }
         },
@@ -12967,7 +12812,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/PromotionLinks"
           },
           "name": {
@@ -13072,11 +12916,9 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/ApplicationLinks"
           },
           "_embedded": {
-            "readOnly": true,
             "$ref": "#/components/schemas/ApplicationEmbedded"
           },
           "name": {
@@ -13107,11 +12949,9 @@
             ]
           },
           "hostingSupport": {
-            "description": "Properties related to this application's availability for Cloud or Server hosting",
             "$ref": "#/components/schemas/HostingSupport"
           },
           "atlassianConnectSupport": {
-            "description": "Properties related to this application's support of Atlassian Connect",
             "$ref": "#/components/schemas/ConnectSupport"
           },
           "compatibilityMode": {
@@ -13123,7 +12963,6 @@
             ]
           },
           "details": {
-            "description": "More descriptive properties of the application",
             "$ref": "#/components/schemas/ApplicationDetails"
           }
         },
@@ -13229,7 +13068,6 @@
             "description": "The unique identifier for this transaction, for example \"AT-12345\""
           },
           "licenseDetails": {
-            "description": "Describes the license",
             "$ref": "#/components/schemas/LicenseDetail"
           }
         }
@@ -13271,7 +13109,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "A link to an external web page that describes the license type",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -13286,11 +13123,9 @@
             "$ref": "#/components/schemas/ImageAssetSummary"
           },
           "titleLogo": {
-            "description": "The product's title logo contains the product's logo and name",
             "$ref": "#/components/schemas/ImageAssetSummary"
           },
           "version": {
-            "description": "The latest compatible product version adhering to the specified request parameters",
             "$ref": "#/components/schemas/ProductVersion"
           }
         }
@@ -13322,8 +13157,6 @@
         "type": "object",
         "properties": {
           "logo": {
-            "description": "Displayable image link(s) for the vendor's logo image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           }
         }
@@ -13340,7 +13173,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "query": {
-            "description": "Link template that can be used to get a list of licenses for a vendor's apps filtered by the specified query parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "export": {
@@ -13351,11 +13183,9 @@
             }
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -13411,12 +13241,9 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/AggregatedVendorReportingLink"
           },
           "total": {
-            "description": "Totals of aggregated values per period for all apps",
-            "readOnly": true,
             "$ref": "#/components/schemas/AggregatedSeries"
           },
           "addons": {
@@ -13450,11 +13277,9 @@
             "description": "The name of the region in which the customer was billed"
           },
           "technicalContact": {
-            "description": "The technical contact's information",
             "$ref": "#/components/schemas/TransactionContact"
           },
           "billingContact": {
-            "description": "The billing contact's information, if the app was sold directly to the customer",
             "$ref": "#/components/schemas/TransactionContact"
           }
         },
@@ -13519,11 +13344,9 @@
             "$ref": "#/components/schemas/Link"
           },
           "descriptor": {
-            "description": "Link to this app's descriptor",
             "$ref": "#/components/schemas/Link"
           },
           "byToken": {
-            "description": "Link template to get a token with the specified unique identifier",
             "$ref": "#/components/schemas/LinkTemplate"
           }
         }
@@ -13535,16 +13358,12 @@
         ],
         "properties": {
           "self": {
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to the web content for this app on Marketplace",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "banner": {
-            "description": "To change the banner image, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.banner",
             "$ref": "#/components/schemas/Link"
           },
           "categories": {
@@ -13555,7 +13374,6 @@
             }
           },
           "logo": {
-            "description": "To change the logo image, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.logo",
             "$ref": "#/components/schemas/Link"
           },
           "pricing": {
@@ -13567,27 +13385,18 @@
             }
           },
           "support": {
-            "description": "Links to the app's pricing resource and pricing details page",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "titleLogo": {
-            "description": "To change the title logo image, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.titleLogo",
             "$ref": "#/components/schemas/Link"
           },
           "tokens": {
-            "description": "Link to the access token resource for creating access tokens for the app",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "distribution": {
-            "description": "Link to the app distribution resource",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "recommendations": {
-            "description": "Link to the app recommendations resource for retrieving recommended apps related to this app",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "reviews": {
@@ -13599,42 +13408,27 @@
             }
           },
           "vendor": {
-            "description": "Link to the vendor resource for the app",
             "$ref": "#/components/schemas/Link"
           },
           "versions": {
-            "description": "Link to the versions collection resource",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "watch": {
-            "description": "Link to the watch status resource for the app",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "approval": {
-            "description": "Link to the approval status resource for the app",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "edit": {
-            "description": "Link to the page where you can edit the app information",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "transition": {
-            "description": "Link to the resource for transitioning an app from private to public",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "release": {
-            "description": "Link to the resource for releasing an approved but unreleased app",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "feedbacks": {
-            "description": "Link to the vendor feedback collection resource for the app",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           }
         }
@@ -13654,31 +13448,24 @@
             "$ref": "#/components/schemas/Link"
           },
           "query": {
-            "description": "Link template that can be used to get a list of products filtered by the specified query parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "byKey": {
-            "description": "Link to the product with the specified unique key",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "latestVersion": {
-            "description": "Link to the latest compatible product version matching the specified request parameters",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "versionByBuild": {
-            "description": "Link to the product version with the specified build number",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "versionByName": {
-            "description": "Link to the product version with the specified version display name",
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "next": {
-            "description": "Link to the next page of results if there were more results after the current page",
             "$ref": "#/components/schemas/Link"
           },
           "prev": {
-            "description": "Link to the previous page of results if the current page is not the first",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -13687,20 +13474,15 @@
         "type": "object",
         "properties": {
           "self": {
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to the web content for this version on Marketplace",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "agreement": {
-            "description": "Provide a link to the current Marketplace agreement when creating a version, unless the agreement was already accepted for a previous version",
             "$ref": "#/components/schemas/Link"
           },
           "artifact": {
-            "description": "To specify an app artifact, set this link to either the resource URI of an already-uploaded artifact, or the URI of an external artifact for Marketplace to download",
             "$ref": "#/components/schemas/Link"
           },
           "functionalCategories": {
@@ -13712,26 +13494,18 @@
             }
           },
           "edit": {
-            "description": "Link to the page where you can edit the version information",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "approval": {
-            "description": "Link to the approval status resource for the version",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "transition": {
-            "description": "Link to the resource for transitioning a version from private to public",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "hero": {
-            "description": "To change the hero image, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.hero",
             "$ref": "#/components/schemas/Link"
           },
           "license": {
-            "description": "Link to the license type resource for the app version's software license type; optional for private versions, required for public versions",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -13824,8 +13598,6 @@
         "type": "object",
         "properties": {
           "artifact": {
-            "description": "Information about the installable artifact, if any; has \"binary\" link for downloads, \"remote\" link for Connect descriptors",
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonArtifactAssetSummary"
           },
           "functionalCategories": {
@@ -13837,8 +13609,6 @@
             }
           },
           "hero": {
-            "description": "Displayable image link(s) for the app version's hero image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           },
           "highlights": {
@@ -13863,8 +13633,6 @@
             }
           },
           "license": {
-            "description": "Information about the app version's software license type",
-            "readOnly": true,
             "$ref": "#/components/schemas/LicenseType"
           }
         }
@@ -13902,7 +13670,6 @@
             "$ref": "#/components/schemas/AddonCollectionLinks"
           },
           "_embedded": {
-            "description": "Contains the list of apps",
             "$ref": "#/components/schemas/AddonCollectionEmbedded"
           },
           "count": {
@@ -13920,7 +13687,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/LicenseCollectionLinks"
           },
           "licenses": {
@@ -13938,7 +13704,6 @@
         "type": "object",
         "properties": {
           "image": {
-            "description": "To change the instruction image, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.image",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -13989,12 +13754,9 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/AggregatedVendorReportingLink"
           },
           "total": {
-            "description": "Totals of calculated conversion values per period for all apps",
-            "readOnly": true,
             "$ref": "#/components/schemas/CalculatedConversionsSeries"
           },
           "addons": {
@@ -14035,8 +13797,6 @@
         "type": "object",
         "properties": {
           "topVendor": {
-            "description": "Describes the vendor’s participation in the Top Vendor program",
-            "readOnly": true,
             "$ref": "#/components/schemas/TopVendor"
           }
         }
@@ -14097,7 +13857,6 @@
             "description": "Date and time when the promotion code was created"
           },
           "usage": {
-            "description": "Information about usage of the promotion code if it has been used",
             "$ref": "#/components/schemas/PromotionCodeUsage"
           }
         }
@@ -14109,7 +13868,6 @@
         ],
         "properties": {
           "image": {
-            "description": "To change the screenshot image, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.image",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -14182,8 +13940,6 @@
         ],
         "properties": {
           "image": {
-            "description": "Displayable image link(s) for the screenshot image",
-            "readOnly": true,
             "$ref": "#/components/schemas/ImageAssetSummary"
           }
         }
@@ -14313,41 +14069,27 @@
         ],
         "properties": {
           "self": {
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "logo": {
-            "description": "To change the logo, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.logo",
             "$ref": "#/components/schemas/Link"
           },
           "versions": {
-            "description": "Link to the version collection resource for this application",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "latestVersion": {
-            "description": "Link to the version resource for the latest version",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "versionByBuild": {
-            "description": "Link template for getting a specific version by build number",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "versionByName": {
-            "description": "Link template for getting a specific version by version string",
-            "readOnly": true,
             "$ref": "#/components/schemas/LinkTemplate"
           },
           "addons": {
-            "description": "Link to the app collection resource, filtered for compatibility with this application",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "addonCategories": {
-            "description": "Link to the app category collection resource for this application",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -14441,11 +14183,9 @@
             "$ref": "#/components/schemas/Link"
           },
           "binary": {
-            "description": "URI for downloading the app artifact",
             "$ref": "#/components/schemas/Link"
           },
           "remote": {
-            "description": "URI of the app's JSON descriptor if it is an Atlassian Connect app; omitted for all other types of apps",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -14531,7 +14271,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/UserSummaryLink"
           },
           "name": {
@@ -14595,7 +14334,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "usage": {
-            "description": "Link to the usage resource for this promotion code",
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -14685,15 +14423,12 @@
             "$ref": "#/components/schemas/Link"
           },
           "artifact": {
-            "description": "Link to the resource for uploading an app artifact",
             "$ref": "#/components/schemas/Link"
           },
           "fetchArtifact": {
-            "description": "Link to the resource for creating an app artifact from an external URI",
             "$ref": "#/components/schemas/Link"
           },
           "imageByType": {
-            "description": "Link to the resource for uploading an image asset",
             "$ref": "#/components/schemas/LinkTemplate"
           }
         }
@@ -14823,8 +14558,6 @@
             "$ref": "#/components/schemas/Link"
           },
           "alternate": {
-            "description": "Link to the web content for this app on Marketplace",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "applications": {
@@ -14844,13 +14577,9 @@
             }
           },
           "distribution": {
-            "description": "Link to the app distribution resource",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "logo": {
-            "description": "To change the logo image, set this link to either the resource URI of an already-uploaded image, or the URI of an external image for Marketplace to download; to display the current image, see _embedded.logo",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "pricing": {
@@ -14870,13 +14599,9 @@
             }
           },
           "vendor": {
-            "description": "Link to the vendor resource for the app",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           },
           "versions": {
-            "description": "Link to the versions collection resource",
-            "readOnly": true,
             "$ref": "#/components/schemas/Link"
           }
         }
@@ -14889,7 +14614,6 @@
         ],
         "properties": {
           "_links": {
-            "readOnly": true,
             "$ref": "#/components/schemas/AddonCategoryLinks"
           },
           "name": {
@@ -14938,7 +14662,6 @@
             ]
           },
           "programs": {
-            "description": "Indicates vendor program information",
             "$ref": "#/components/schemas/VendorPrograms"
           },
           "isAtlassian": {
