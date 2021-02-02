@@ -5371,7 +5371,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Vendor"
+                "$ref": "#/components/schemas/CreateVendorRepresentation"
               }
             }
           },
@@ -11668,7 +11668,7 @@
           }
         }
       },
-      "Vendor": {
+      "CreateVendorRepresentation": {
         "type": "object",
         "required": [
           "_links",
@@ -11687,6 +11687,86 @@
           "name": {
             "type": "string",
             "description": "Name of the vendor"
+          },
+          "description": {
+            "type": "string",
+            "description": "Short introductory text that will appear on the vendor's Marketplace page"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "email": {
+            "type": "string",
+            "description": "The vendor's public contact email"
+          },
+          "phone": {
+            "type": "string",
+            "description": "The vendor's public phone number"
+          },
+          "vendorLinks": {
+            "$ref": "#/components/schemas/VendorExternalLinks"
+          },
+          "supportDetails": {
+            "$ref": "#/components/schemas/VendorSupportDetails"
+          },
+          "otherContactDetails": {
+            "type": "string",
+            "description": "Any other public contact information the vendor wishes to provide"
+          },
+          "verifiedStatus": {
+            "type": "string",
+            "description": "Indicates whether the vendor has Atlassian Verified status",
+            "readOnly": true,
+            "enum": [
+              "flagged",
+              "needs-verification",
+              "not-requested",
+              "rejected",
+              "requested",
+              "verified"
+            ]
+          },
+          "programs": {
+            "$ref": "#/components/schemas/VendorPrograms"
+          },
+          "cloudSecurity": {
+            "$ref": "#/components/schemas/VendorCloudSecurity"
+          },
+          "solutionPartner": {
+            "$ref": "#/components/schemas/VendorSolutionPartner"
+          },
+          "isAtlassian": {
+            "type": "boolean",
+            "description": "Whether this vendor is one of the Atlassian vendors"
+          }
+        },
+        "description": "Detailed information about a vendor"
+      },
+      "Vendor": {
+        "type": "object",
+        "required": [
+          "_links",
+          "email",
+          "name",
+          "id",
+          "supportDetails",
+          "vendorLinks"
+        ],
+        "properties": {
+          "_links": {
+            "$ref": "#/components/schemas/VendorLinks"
+          },
+          "_embedded": {
+            "$ref": "#/components/schemas/VendorEmbedded"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the vendor"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ID of the vendor"
           },
           "description": {
             "type": "string",
