@@ -8749,6 +8749,36 @@
           }
         }
       },
+      "AddonVersionCloudDeployment": {
+        "type": "object",
+        "description": "Cloud app information, if the deployment type of the version is Atlassian cloud",
+        "required": [
+          "appId",
+          "appEnvironmentId",
+          "appVersionId"
+        ],
+        "properties": {
+          "appId": {
+            "type": "string",
+            "description": "Unique identifier of the cloud app"
+          },
+          "appEnvironmentId": {
+            "type": "string",
+            "description": "Unique identifier of the production environment of the cloud app"
+          },
+          "appVersionId": {
+            "type": "string",
+            "description": "Unique identifier of the cloud app version"
+          },
+          "appScopes": {
+            "type": "array",
+            "description": "List of scopes used by the version, if it is an Atlassian cloud app",
+            "items": {
+              "$ref": "#/components/schemas/AddonVersionCloudPermission"
+            }
+          }
+        }
+      },
       "ApprovalStage": {
         "type": "string"
       },
@@ -8921,6 +8951,17 @@
         }
       },
       "AddonVersionPermissionLinks": {
+        "type": "object",
+        "required": [
+          "alternate"
+        ],
+        "properties": {
+          "alternate": {
+            "$ref": "#/components/schemas/Link"
+          }
+        }
+      },
+      "AddonVersionCloudPermissionLinks": {
         "type": "object",
         "required": [
           "alternate"
@@ -10004,6 +10045,9 @@
           },
           "deployment": {
             "$ref": "#/components/schemas/AddonVersionDeployment"
+          },
+          "cloud": {
+            "$ref": "#/components/schemas/AddonVersionCloudDeployment"
           }
         }
       },
@@ -10311,6 +10355,29 @@
             "type": "string",
             "description": "Description of the Atlassian Connect scope",
             "readOnly": true
+          }
+        }
+      },
+      "AddonVersionCloudPermission": {
+        "type": "object",
+        "required": [
+          "key"
+        ],
+        "properties": {
+          "_links": {
+            "$ref": "#/components/schemas/AddonVersionCloudPermissionLinks"
+          },
+          "key": {
+            "type": "string",
+            "description": "Short unique identifier of the scope of the Atlassian cloud app"
+          },
+          "name": {
+            "type": "string",
+            "description": "Short name of the scope of the Atlassian cloud app"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the scope of the Atlassian cloud app"
           }
         }
       },
