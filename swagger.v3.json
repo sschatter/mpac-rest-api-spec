@@ -8963,6 +8963,7 @@
       },
       "AddonVersionCloudPermissionLinks": {
         "type": "object",
+        "description": "Link to external documentation for the scopes of the Atlassian cloud app (ignored in case of POST request)",
         "required": [
           "alternate"
         ],
@@ -10373,11 +10374,11 @@
           },
           "name": {
             "type": "string",
-            "description": "Short name of the scope of the Atlassian cloud app"
+            "description": "Short name of the scope of the Atlassian cloud app (ignored in case of POST request)"
           },
           "description": {
             "type": "string",
-            "description": "Description of the scope of the Atlassian cloud app"
+            "description": "Description of the scope of the Atlassian cloud app (ignored in case of POST request)"
           }
         }
       },
