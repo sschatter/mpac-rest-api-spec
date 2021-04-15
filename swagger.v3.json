@@ -38,7 +38,7 @@
       "description": "Information about products"
     },
     {
-      "name": "Promotions",
+      "name": "Promotions (Deprecated)",
       "description": "Information about vendor promotions"
     },
     {
@@ -5806,10 +5806,11 @@
     "/vendors/{vendorId}/promotions": {
       "get": {
         "tags": [
-          "Promotions"
+          "Promotions (Deprecated)"
         ],
+        "deprecated": true,
         "summary": "Get promotions",
-        "description": "Get a list of promotions for the specified vendor.\n\nThis resource requires authentication.",
+        "description": "Get a list of promotions for the specified vendor.\n\nThis resource requires authentication.\n\n**This is a deprecated API. Refer [Get promotions](/platform/marketplace/rest/v1/api-group-promotions/#api-marketplace-catalog-partners-partnerid-promotions-get) for the new API details**",
         "parameters": [
           {
             "name": "vendorId",
@@ -5842,10 +5843,11 @@
       },
       "post": {
         "tags": [
-          "Promotions"
+          "Promotions (Deprecated)"
         ],
+        "deprecated": true,
         "summary": "Create promotion",
-        "description": "Create a new promotion for the specified vendor.\n\nThis resource requires authentication.",
+        "description": "Create a new promotion for the specified vendor.\n\nThis resource requires authentication.\n\n**This is a deprecated API. Refer [Create promotion](/platform/marketplace/rest/v1/api-group-promotions/#api-marketplace-catalog-partners-partnerid-promotions-post) for the new API details**",
         "parameters": [
           {
             "name": "vendorId",
@@ -5891,10 +5893,11 @@
     "/vendors/{vendorId}/promotions/{promotionId}": {
       "get": {
         "tags": [
-          "Promotions"
+          "Promotions (Deprecated)"
         ],
+        "deprecated": true,
         "summary": "Get promotion",
-        "description": "Get a specific promotion for the specified vendor.\n\nThis resource requires authentication.",
+        "description": "Get a specific promotion for the specified vendor.\n\nThis resource requires authentication.\n\n**This is a deprecated API. Refer [Get promotion](/platform/marketplace/rest/v1/api-group-promotions/#api-marketplace-catalog-partners-partnerid-promotions-promotionid-get) for the new API details**",
         "parameters": [
           {
             "name": "vendorId",
@@ -5936,10 +5939,11 @@
       },
       "patch": {
         "tags": [
-          "Promotions"
+          "Promotions (Deprecated)"
         ],
+        "deprecated": true,
         "summary": "Update promotion",
-        "description": "Update a specific promotion for the specified vendor.\n\nThe request body must be a valid <a href=\"https://tools.ietf.org/html/rfc6902\">JSON Patch</a> document. The properties which can be referenced in the PATCH are the same ones returned by a GET on this URI.\n\nThis resource requires authentication.",
+        "description": "Update a specific promotion for the specified vendor.\n\nThe request body must be a valid <a href=\"https://tools.ietf.org/html/rfc6902\">JSON Patch</a> document. The properties which can be referenced in the PATCH are the same ones returned by a GET on this URI.\n\nThis resource requires authentication.\n\n**This is a deprecated API. Refer [Update promotion](/platform/marketplace/rest/v1/api-group-promotions/#api-marketplace-catalog-partners-partnerid-promotions-promotionid-patch) for the new API details**",
         "parameters": [
           {
             "name": "vendorId",
@@ -6000,10 +6004,11 @@
     "/vendors/{vendorId}/promotions/{promotionId}/codes": {
       "get": {
         "tags": [
-          "Promotions"
+          "Promotions (Deprecated)"
         ],
+        "deprecated": true,
         "summary": "Get promotion codes",
-        "description": "Get a list of single-use codes for the specified promotion.\n\nThis resource requires authentication.",
+        "description": "Get a list of single-use codes for the specified promotion.\n\nThis resource requires authentication.\n\n**This is a deprecated API. Refer [Get promotion codes](/platform/marketplace/rest/v1/api-group-promotions/#api-marketplace-catalog-partners-partnerid-promotions-promotionid-codes-get) for the new API details**",
         "parameters": [
           {
             "name": "vendorId",
@@ -6045,10 +6050,11 @@
       },
       "post": {
         "tags": [
-          "Promotions"
+          "Promotions (Deprecated)"
         ],
+        "deprecated": true,
         "summary": "Create promotion code",
-        "description": "Create a new single-use code for the specified promotion.\n\nThis resource requires authentication.",
+        "description": "Create a new single-use code for the specified promotion.\n\nThis resource requires authentication.\n\n**This is a deprecated API. Refer [Create promotion code](/platform/marketplace/rest/v1/api-group-promotions/#api-marketplace-catalog-partners-partnerid-promotions-promotionid-codes-post) for the new API details**",
         "parameters": [
           {
             "name": "vendorId",
@@ -6092,10 +6098,11 @@
     "/vendors/{vendorId}/promotions/{promotionId}/codes/{promotionCode}": {
       "get": {
         "tags": [
-          "Promotions"
+          "Promotions (Deprecated)"
         ],
+        "deprecated": true,
         "summary": "Get promotion code",
-        "description": "Get a specific single-use code for the specified promotion.\n\nThis resource requires authentication.",
+        "description": "Get a specific single-use code for the specified promotion.\n\nThis resource requires authentication.\n\n**This is a deprecated API. Refer [Get promotion code](/platform/marketplace/rest/v1/api-group-promotions/#api-marketplace-catalog-partners-partnerid-promotions-promotionid-codes-promotioncode-get) for the new API details**",
         "parameters": [
           {
             "name": "vendorId",
@@ -6145,10 +6152,11 @@
       },
       "delete": {
         "tags": [
-          "Promotions"
+          "Promotions (Deprecated)"
         ],
+        "deprecated": true,
         "summary": "Delete promotion code",
-        "description": "Delete a specific single-use code for a specific promotion associated with a specific vendor. \n\nPromotion codes can only be deleted prior to their use.\n\nThis resource requires authentication.",
+        "description": "Delete a specific single-use code for a specific promotion associated with a specific vendor. \n\nPromotion codes can only be deleted prior to their use.\n\nThis resource requires authentication.\n\n**This is a deprecated API. Refer [Delete promotion code](/platform/marketplace/rest/v1/api-group-promotions/#api-marketplace-catalog-partners-partnerid-promotions-promotionid-codes-promotioncode-delete) for the new API details**",
         "parameters": [
           {
             "name": "vendorId",
@@ -6196,10 +6204,11 @@
     "/vendors/{vendorId}/promotions/{promotionId}/status": {
       "get": {
         "tags": [
-          "Promotions"
+          "Promotions (Deprecated)"
         ],
+        "deprecated": true,
         "summary": "Get promotion status",
-        "description": "Get a specific promotion status for the specified vendor.\n\nThis resource requires authentication.",
+        "description": "Get a specific promotion status for the specified vendor.\n\nThis resource requires authentication.\n\n**This is a deprecated API. Refer [Get promotion status](/platform/marketplace/rest/v1/api-group-promotions/#api-marketplace-catalog-partners-partnerid-promotions-promotionid-status-get) for the new API details**",
         "parameters": [
           {
             "name": "vendorId",
