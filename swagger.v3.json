@@ -10180,6 +10180,22 @@
           "evaluationSaleDate": {
             "type": "string",
             "description": "Sale date of the matching evaluation license for the current license"
+          },
+          "parentProductBillingCycle": {
+            "type": "string",
+            "description": "The number of months for which evaluation license parent product is valid. This field is in closed beta"
+          },
+          "parentProductName": {
+            "type": "string",
+            "description": "Name of the parent product on which the app is hosted, for example \"Jira\" .This field is in closed beta"
+          },
+          "parentProductEdition": {
+            "type": "string",
+            "description": "A short description of the pricing tier or user level of the license's parent product, for example \"Premium\" . This field is in closed beta"
+          },
+          "installedOnSandbox": {
+            "type": "string",
+            "description": "Licence is installed on sandbox site or not. This field is in closed beta"
           }
         },
         "description": "Describes a single license of a vendor's app"
@@ -14367,10 +14383,6 @@
             "format": "date",
             "description": "The date on which the transaction occurred"
           },
-          "tier": {
-            "type": "string",
-            "description": "The user/edition count"
-          },
           "licenseType": {
             "type": "string",
             "description": "The unique identifier for this license type, for example \"COMMERCIAL\""
@@ -14382,6 +14394,42 @@
           "billingPeriod": {
             "type": "string",
             "description": "The number of months for which the transaction is valid"
+          },
+          "changeInBillingPeriod": {
+            "type": "string",
+            "description": "Shows whether there is change in the billing period of an app from the (n-1)th transaction to nth transaction(either 'Yes' or 'No'). This field is in closed beta"
+          },
+          "oldBillingPeriod": {
+            "type": "string",
+            "description": "The (n-1)th transaction’s billing period of an app. This field is in closed beta"
+          },
+          "tier": {
+            "type": "string",
+            "description": "The user/edition count"
+          },
+          "changeInTier": {
+            "type": "string",
+            "description": "Shows whether there is change in the user/edition count from the (n-1)th transaction to nth transaction(either 'Increase', 'Decrease' or 'Not Applicable'). This field is in closed beta"
+          },
+          "oldTier": {
+            "type": "string",
+            "description": "The (n-1)th transaction’s user/edition count. This field is in closed beta"
+          },
+          "parentProductName": {
+            "type": "string",
+            "description": "Name of the parent product on which the app is hosted, for example \"Jira\" .This field is in closed beta"
+          },
+          "parentProductEdition": {
+            "type": "string",
+            "description": "A short description of the pricing tier or user level of the license parent product(either 'Yes' or 'No'). This field is in closed beta"
+          },
+          "changeInParentProductEdition": {
+            "type": "string",
+            "description": "Shows whether there is change in the parent edition from the (n-1)th transaction to nth transaction. This field is in closed beta"
+          },
+          "oldParentProductEdition": {
+            "type": "string",
+            "description": "The (n-1)th transaction’s parent edition. This field is in closed beta"
           },
           "purchasePrice": {
             "type": "number",
@@ -14403,6 +14451,14 @@
             "format": "float",
             "description": "For partner sales, the amount discounted as Loyalty Discount"
           },
+          "discounts": {
+            "type": "array",
+            "readOnly": true,
+            "items": {
+              "$ref": "#/components/schemas/TransactionDiscount"
+            },
+            "description": "Discounts applied on the transaction. This field is in closed beta"
+          },
           "saleType": {
             "type": "string",
             "description": "The display name of the sale type, for example \"Renewal\""
@@ -14419,6 +14475,25 @@
           }
         },
         "description": "The purchase details for a transaction"
+      },
+      "TransactionDiscount": {
+        "type": "object",
+        "required": [
+          "type",
+          "amount"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of discount applied"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "description": "Amount discounted"
+          }
+        },
+        "description": "Captures the details of a single discount applied on the transaction"
       },
       "UserSummary": {
         "type": "object",
