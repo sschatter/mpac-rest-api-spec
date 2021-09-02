@@ -2528,6 +2528,20 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "hosting",
+            "in": "query",
+            "description": "Only returns apps with the specified hosting model",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "cloud",
+                "datacenter",
+                "server"
+              ]
+            }
           }
         ],
         "responses": {
