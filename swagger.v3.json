@@ -12121,7 +12121,6 @@
         "type": "object",
         "required": [
           "alternate",
-          "author",
           "self"
         ],
         "properties": {
@@ -12132,7 +12131,7 @@
             "$ref": "#/components/schemas/Link"
           },
           "author": {
-            "$ref": "#/components/schemas/Link"
+            "description": "This field is deprecated and will be removed soon"
           },
           "response": {
             "$ref": "#/components/schemas/Link"
